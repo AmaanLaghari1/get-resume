@@ -13,11 +13,13 @@ Route::group(['middleware' => 'guest'], function(){
 
 Route::get('/logout', [AuthController::class, 'loggedout']);
 Route::group(['middleware' => 'auth'], function(){
-    
     Route::get('/home', [ResumeController::class, 'homeView']);
     Route::get('/resume/create', [ResumeController::class, 'createResumeView']);
+    Route::get('/resume/update/{id}', [ResumeController::class, 'updateResumeView']);
     Route::get('/resume/view/{id}', [ResumeController::class, 'resumeView']);
+    Route::post('/resume/update/{id}', [ResumeController::class, 'resumeUpdate']);
     Route::post('/resume/create', [ResumeController::class, 'resumeSave']);
+    Route::get('/resume/delete/{id}', [ResumeController::class, 'resumeDelete']);
     Route::get('admin', function () {
         return view('admin.admin');
     });

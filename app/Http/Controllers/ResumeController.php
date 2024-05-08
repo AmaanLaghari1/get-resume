@@ -17,7 +17,12 @@ class ResumeController extends Controller
         return view('create');
     }
 
-    // Resume Input Handler
+    public function updateResumeView($id){
+        $resume = Resume::where('id', $id)->first();
+        return view('update', ['resume' => $resume]);
+    }
+
+    // Create Resume Handler
     public function resumeSave(Request $req){
         // dd($req->all());
 
@@ -27,6 +32,8 @@ class ResumeController extends Controller
             'email' => 'required|unique:resumes,email',
             'phone' => 'required|min:11|max:11',
             'address' => 'required',
+            'objective' => 'required',
+            'institute.*' => 'required',
         ]);
 
         $newResume = new Resume();
@@ -64,6 +71,18 @@ class ResumeController extends Controller
 
         $newResume->save();
         return back()->withSuccess("Resume saved...");
+    }
+
+    // Update Resume Handler
+    public function resumeUpdate(Request $req ,$id){
+        $resume = Resume::where('id', $id)->first();
+        dd($req->all());
+    }
+    
+    public function resumeDelete($id){
+        $resume = Resume::where('id', $id)->first();
+        $resume->delete();
+        return back()->withSuccess("Resume deleted...");
     }
 
     public function resumeView($id){

@@ -46,9 +46,14 @@
                 @endif
             </div>
         </div>
-
+        
         <div class="form-group my-2">
             <label for="objective" class="form-label">Objective<span class="text-danger">*</span></label>
+            @error('objective')
+            <small class="text-danger">
+                {{$message}}
+            </small>
+            @enderror
             <textarea name="objective" id="objective" cols="30" rows="3" class="form-control"></textarea>
         </div>
         
@@ -57,6 +62,11 @@
         <div class="form-group my-2">
             <div id="edu" class="d-flex gap-2 flex-wrap"></div>
             <label for="education" class="form-label">Education<span class="text-danger">*</span></label>
+            @error('institute.*')
+            <small class="text-danger">
+                {{$message}}
+            </small>
+            @enderror
             <input type="text" class="form-control my-2" placeholder="School / College / University" id="institute">
             <input type="text" class="form-control my-2" placeholder="Degree" id="degree">
             <input type="text" class="form-control my-2" placeholder="Location" id="ins-location">

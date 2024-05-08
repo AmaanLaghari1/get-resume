@@ -42,6 +42,10 @@
             <input type="hidden" name="marks[]" value="${marks}">
             </div>
             `)
+
+            $(".remove-edu").click(function() {
+                $(this).parent().remove()
+            })
         })
         
         $("#add-exp-btn").click(function(){

@@ -21,12 +21,16 @@
             <small class="card-text">
                 {{$row['address']}}
             </small>
-            <a href="./resume/view/{{$row['id']}}" class="btn btn-warning btn-sm w-25">View</a>
+            <div>
+                <a href="./resume/view/{{$row['id']}}" class="btn btn-warning btn-sm mx-2">View</a>
+                <a href="./resume/update/{{$row['id']}}" class="btn btn-warning btn-sm mx-2">Update</a>
+                <a href="./resume/delete/{{$row['id']}}" class="btn btn-danger btn-sm mx-2">Delete</a>
+            </div>
         </div>
     </div>
     @endforeach
     @else
-    <h3 class="text-center">No resumes to show!</h3>
+    <h3 class="text-center text-secondary fst-italic">No resumes to show!</h3>
     @endif
 </div>
 @endsection
