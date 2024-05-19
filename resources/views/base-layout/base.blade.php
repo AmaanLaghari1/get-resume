@@ -3,7 +3,7 @@
 
 @include('sweetalert::alert')
 </body>
-<script src="{{asset('assets/js/jquery.js')}}"></script>
+<script src="{{public_path('assets/js/jquery.js')}}"></script>
 <script>
     $(document).ready(() => {
         $('#add-skill-btn').click(function() {

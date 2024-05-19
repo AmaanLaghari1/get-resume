@@ -22,7 +22,7 @@
                 {{$row['address']}}
             </small>
             <div>
-                <a href="./resume/view/{{$row['id']}}" class="btn btn-warning btn-sm mx-2">View</a>
+                <a href="./resume/select/{{$row['id']}}" class="btn btn-warning btn-sm mx-2">View</a>
                 <a href="./resume/update/{{$row['id']}}" class="btn btn-warning btn-sm mx-2">Update</a>
                 <a href="./resume/delete/{{$row['id']}}" class="btn btn-danger btn-sm mx-2">Delete</a>
             </div>

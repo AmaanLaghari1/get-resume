@@ -33,7 +33,17 @@ class ResumeController extends Controller
             'phone' => 'required|min:11|max:11',
             'address' => 'required',
             'objective' => 'required',
-            'institute.*' => 'required',
+            'institute' => 'required',
+            'degree' => 'required',
+            'ins_location' => 'required',
+            'yop' => 'required',
+            'marks' => 'required',
+            'skills' => 'required',
+            'company' => 'required',
+            'description' => 'required',
+            'position' => 'required',
+            'start_date' => 'required',
+            'end_date' => 'required',
         ]);
 
         $newResume = new Resume();
@@ -85,8 +95,18 @@ class ResumeController extends Controller
         return back()->withSuccess("Resume deleted...");
     }
 
-    public function resumeView($id){
+    public function resumeView($tempId, $id){
         $resume = Resume::where('id', $id)->first();
-        return view('resume', ['resume' => $resume]);
+        if($tempId == 1){
+            return view('templates.resume', ['resume' => $resume]);
+        }
+        elseif($tempId == 2){
+            return view('templates.resume2', ['resume' => $resume]);
+        }
+    }
+    
+    public function resumeSelectView($id){
+        $resume = Resume::where('id', $id)->first();
+        return view('select', ['resume' => $resume]);
     }
 }

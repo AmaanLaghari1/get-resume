@@ -1,5 +1,5 @@
 @extends('base-layout.base')
-
+@push('title') Create @endpush
 @section('main')
 <div class="container p-3">
     <h1>Create your resume</h1>
@@ -62,16 +62,36 @@
         <div class="form-group my-2">
             <div id="edu" class="d-flex gap-2 flex-wrap"></div>
             <label for="education" class="form-label">Education<span class="text-danger">*</span></label>
-            @error('institute.*')
+            @error('institute')
             <small class="text-danger">
                 {{$message}}
             </small>
             @enderror
             <input type="text" class="form-control my-2" placeholder="School / College / University" id="institute">
             <input type="text" class="form-control my-2" placeholder="Degree" id="degree">
+            @error('degree')
+            <small class="text-danger">
+                {{$message}}
+            </small>
+            @enderror
             <input type="text" class="form-control my-2" placeholder="Location" id="ins-location">
+            @error('ins_location')
+            <small class="text-danger">
+                {{$message}}
+            </small>
+            @enderror
             <input type="text" class="form-control my-2" placeholder="Grade / Marks / Percentage" id="marks">
+            @error('marks')
+            <small class="text-danger">
+                {{$message}}
+            </small>
+            @enderror
             <input type="text" class="form-control my-2" placeholder="Year of passing" id="yop">
+            @error('yop')
+            <small class="text-danger d-block">
+                {{$message}}
+            </small>
+            @enderror
             <button type="button" class="btn btn-primary btn-sm" id="add-edu-btn">Add Education</button>
         </div>
         
@@ -82,6 +102,11 @@
             <div id="skills">
                 </div>
                 <div class="position-relative">
+                    @error('skills')
+                    <small class="text-danger d-block">
+                        {{$message}}
+                    </small>
+                    @enderror
                     <input type="text" class="form-control" id="skill-input" placeholder="JavaScript, Python, PHP">
                     <button type="button" class="btn btn-primary position-absolute top-0 end-0" id="add-skill-btn">Add</button>
                 </div>
@@ -93,12 +118,37 @@
                 <div id="exp" class="d-flex gap-2 flex-wrap"></div>
                 <label for="experience" class="form-label">Experience<span class="text-danger">*</span></label>
                 <input type="text" class="form-control my-2" id="position" placeholder="Position">
+                @error('position')
+                <small class="text-danger d-block">
+                    {{$message}}
+                </small>
+                @enderror
                 <input type="text" class="form-control my-2" id="comp-name" placeholder="Company">
+                @error('company')
+                <small class="text-danger d-block">
+                    {{$message}}
+                </small>
+                @enderror
                 <input type="text" class="form-control my-2" id="desc" placeholder="Describe your role">
+                @error('description')
+                <small class="text-danger d-block">
+                    {{$message}}
+                </small>
+                @enderror
                 <label for="experience" class="form-label">Joining Date<span class="text-danger">*</span></label>
                 <input type="date" class="form-control my-2" id="start-date" placeholder="Duration">
+                @error('start_date')
+                <small class="text-danger d-block">
+                    {{$message}}
+                </small>
+                @enderror
                 <label for="experience" class="form-label">Leaving Date<span class="text-danger">*</span></label>
                 <input type="date" class="form-control my-2" id="end-date" placeholder="Duration">
+                @error('end_date')
+                <small class="text-danger d-block">
+                    {{$message}}
+                </small>
+                @enderror
                 <button type="button" class="btn btn-primary btn-sm" id="add-exp-btn">Add Experience</button>
             </div>
 
