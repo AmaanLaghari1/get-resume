@@ -29,15 +29,15 @@
     </style>
 </head>
 <body>
-    <h1><span class="fa-solid fa-user"></span> AMAANULLAH KHAN LAGHARI</h1>
-    <h3 style="font-weight: lighter;">FRONT-END DEVELOPER</h3>
+    <h1><span class="fa-solid fa-user"></span> {{$resume['title']}}</h1>
+    <h3 style="font-weight: lighter;">{{$resume['profession']}}</h3>
     
     <table width="100%">
         <tr>
-            <td width="25%"><span class="fa-solid fa-location-dot"></span> Hyderabad, Sindh, Pakistan.</td>
-            <td width="25%"><span class="fa-solid fa-envelope"></span> <a href="mailto:laghariamaan@gmail.com">laghariamaan@gmail.com</a></td>
+            <td width="25%"><span class="fa-solid fa-location-dot"></span>{{$resume['address']}}</td>
+            <td width="25%"><span class="fa-solid fa-envelope"></span> <a href="mailto:laghariamaan@gmail.com">{{$resume['email']}}</a></td>
             <td width="25%"><i class="fa-brands fa-linkedin"></i> <a href="https://www.linkedin.com/in/amaan-laghari-86a7a5233/" target="_blank">amaan-laghari-86a7a5233</a></td>
-            <td width="25%"><span class="fa-solid fa-phone"></span> <a href="tel:923133551379">923133551379</a></td>
+            <td width="25%"><span class="fa-solid fa-phone"></span> <a href="tel:923133551379">{{$resume['phone']}}</a></td>
         </tr>
     </table>
     <hr>
@@ -45,11 +45,9 @@
         <h3>SUMMARY <span class="fa fa-list" aria-hidden="true"></span></h3>
         <!-- <img style="width: 18px;" class="" src="./telephone.png" alt=""> -->
     </dt>
-    <!-- <dd>
-        I'm a graduate of Software Engineering, hardworking and passionate job seeker with strong organizational skills eager to secure entry-level Web Developer position. Ready to help team achieve company goals. Capable of converting any design into code.
-    </dd> -->
+    
     <dd align="justify">
-        As a recent graduate in software engineering, I bring a strong foundation in computer science, programming languages, and software development methodologies. With a passion for solving complex problems and a commitment to continuous learning, I am eager to apply my skills and knowledge to a challenging role in software engineering. I have experience working on a variety of projects, including web and mobile applications, and I am proficient in languages such as HTML5 and JavaScript. As a motivated and detail-oriented team player, I am excited to contribute to the success of a dynamic and innovative software development team.
+        {{$resume['objective']}}
     </dd>
 
     <hr>
@@ -57,62 +55,50 @@
     <dt>
         <h3>EDUCATION <span class="fa-solid fa-graduation-cap"></span></h3>
     </dt>
+    @php
+        $education = json_decode($resume['education'])
+    @endphp
+    @foreach($education as $edu)
     <dd>
         <p>
-            <strong>SSC (Biology), </strong>2008-16
+            <strong>{{$edu->degree}}, </strong>{{$edu->yop}}
         </p>
         <p>
-            <em><b>Worker's Model High School, Hyderabad.</b></em>
+            <em><b>{{$edu->institute}}</b></em>
         </p>
         <p>
-            Result - <b>B Grade</b> (65.64%)
+            Result - <b>{{$edu->marks}}</b>
         </p>
     </dd>
-    <br>
-    <dd>
-        <p>
-            <strong>HSC (Pre-Engineering), </strong>2016-18
-        </p>
-        <p>
-            <em><b>Muslim GOVT Science Degree College, Hyderabad.</b></em>
-        </p>
-        <p>
-            Result - <b>A Grade</b> (70.00%)
-        </p>
-    </dd>
-    <br>
-    <dd>
-        <p>
-            <strong>BS-Software Engineering, </strong>2019-22
-        </p>
-        <p>
-            <em><b>University of Sindh, Jamshoro.</b></em>
-        </p>
-        <p>
-            Result - <b>3.26 cgpa</b> (69.69%)
-        </p>
-    </dd>
+    @endforeach
 
     <hr>
 
     <dt>
+        @php
+            $experience = json_decode($resume['experience']);
+        @endphp
         <h3>EXPERIENCE <span class="fa fa-history" aria-hidden="true"></span></h3>
     </dt>
+    @foreach($experience as $exp)
+
     <dd>
-        <strong>Geekistans Software Company, Hyderabad.</strong>
+        <strong>{{$exp->company}}.</strong>
         <p>
-            <strong><em>Web Developer Intern</em></strong>
+            <strong><em>{{$exp->position}}</em></strong>
         </p>
-        <p>
-        developed fully responsive dynamic websites using HTML, CSS, Bootstrap and JavaScript for the company.
-        </p>
-        <p>Project link - <a href="https://tradistans.netlify.app/" target="_blank">https://tradistans.netlify.app/</a></p>
-        <p><small><b>Sep 2021 - Nov 2021</b></small></p>
+        <p>{{$exp->description}}</p>
+        <p><small><b>Start - {{$exp->start_date}} End - {{$exp->end_date}}</b></small></p>
     </dd>
+    @endforeach
 
     <hr>
 
     <dt>
+        @php
+        print_r($resume['skills'])
+
+        @endphp
         <h3>SKILLS <span class="fa fa-cogs" aria-hidden="true"></span></h3>
     </dt>
     

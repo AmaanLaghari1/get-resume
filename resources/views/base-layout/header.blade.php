@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Get Resume - @stack('title')</title>
-    <link rel="stylesheet" href="{{public_path('assets/css/bootstrap.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/css/bootstrap.css')}}">
     <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.min.css'></link>
-    <link rel="stylesheet" href="{{public_path('assets/css/style.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/css/style.css')}}">
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
