@@ -97,14 +97,14 @@ Update
             </div>
             <div class="position-relative">
                 <input type="text" class="form-control" id="skill-input" placeholder="JavaScript, Python, PHP">
-                <button type="button" class="btn btn-primary position-absolute top-0 end-0" id="add-skill-btn">Add</button>
+                <button type="button" class="btn btn-primary position-absolute top-0 end-0" id="skill-add-btn">Add</button>
             </div>
         </div>
 
         <hr>
 
         <div class="form-group my-2">
-            <div id="upd-exp" class="d-flex gap-2 flex-wrap">
+            <div id="exp" class="d-flex gap-2 flex-wrap">
             <?php
                     $experience = json_decode($resume->experience);
                 ?>
@@ -138,3 +138,7 @@ Update
 </div>
 
 @endsection
+
+@push('script')
+<script type="module" src="{{asset('assets/js/update.js')}}"></script>
+@endpush('script')

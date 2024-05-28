@@ -108,7 +108,7 @@
                     </small>
                     @enderror
                     <input type="text" class="form-control" id="skill-input" placeholder="JavaScript, Python, PHP">
-                    <button type="button" class="btn btn-primary position-absolute top-0 end-0" id="add-skill-btn">Add</button>
+                    <button type="button" class="btn btn-primary position-absolute top-0 end-0" id="skill-add-btn">Add</button>
                 </div>
             </div>
             
@@ -168,3 +168,6 @@ Swal.fire(
 </script>
 @endif
 @endsection
+@push('script')
+<script type="module" src="{{asset('assets/js/create.js')}}"></script>
+@endpush('script')
