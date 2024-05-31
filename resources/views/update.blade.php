@@ -5,6 +5,11 @@ Update
 @section('main')
 <div class="container p-3">
     <h1>Update your resume</h1>
+    @if(session('success'))
+        <div class="alert alert-success">
+            {{session('success')}}
+        </div>
+    @endif
     <form action="/resume/update/{{$resume->id}}" method="post">
         @csrf
         <div class="form-group my-2">
@@ -57,7 +62,7 @@ Update
         <hr>
 
         <div class="form-group my-2">
-            <div id="upd-edu" class="d-flex gap-2 flex-wrap">
+            <div id="edu" class="d-flex gap-2 flex-wrap">
                 <?php
                     $education = json_decode($resume->education);
                 ?>
@@ -75,7 +80,7 @@ Update
                         <input type="hidden" name="yop[]" value="{{$edu->yop}}">
                         <input type="hidden" name="marks[]" value="{{$edu->marks}}">
 
-                        <button class="position-absolute top-0 end-0 btn btn-close" type="button"></button>
+                        <button class="position-absolute top-0 end-0 btn btn-close remove-edu" type="button"></button>
                     </div>
                 </div>
                 @endforeach
@@ -96,7 +101,7 @@ Update
             <div id="skills">
             </div>
             <div class="position-relative">
-                <input type="text" class="form-control" id="skill-input" placeholder="JavaScript, Python, PHP">
+                <input type="text" class="form-control" name="skills[]" id="skill-input" placeholder="JavaScript, Python, PHP">
                 <button type="button" class="btn btn-primary position-absolute top-0 end-0" id="skill-add-btn">Add</button>
             </div>
         </div>
@@ -116,7 +121,7 @@ Update
                         <p class="card-text">Role - {{$exp->description}}</p>
                         <p class="card-text">Duration - {{$exp->start_date}} to {{$exp->end_date}}</p>
 
-                        <button class="position-absolute top-0 end-0 btn btn-close" type="button"></button>
+                        <button class="position-absolute top-0 end-0 btn btn-close remove-exp" type="button"></button>
                     </div>
                 </div>
                 @endforeach

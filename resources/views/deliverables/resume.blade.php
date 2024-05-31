@@ -1,7 +1,14 @@
-@extends('base-layout.base')
-
-@section('main')
-<div class="container p-2">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{$resume['title']}}</title>
+    <link rel="stylesheet" href="assets/css/bootstrap.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <div class="container p-2">
     
     <h1 class="display-2">{{$resume['title']}}</h1>
     <h3>{{$resume['profession']}}</h3>
@@ -63,4 +70,5 @@
             @endforeach
         </div>
     </div>
-@endsection
+</body>
+</html>

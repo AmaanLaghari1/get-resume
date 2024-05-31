@@ -10,6 +10,7 @@
             <div class="card-body">
                 <h5 class="card-title">Default</h5>
                 <a href="{{$_ENV['APP_URL']}}/resume/1/view/{{$resume['id']}}" class="btn btn-primary">Select</a>
+                <a href="/resume/2/download" class="btn btn-primary">Download</a>
             </div>
         </div>
         <div class="card">

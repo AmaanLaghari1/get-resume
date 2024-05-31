@@ -125,6 +125,8 @@ class ResumeController extends Controller
             $resume->experience = json_encode($experience);
         }
         $resume->save();
+
+        return back()->withSuccess("Resume updated...");
     }
     
     public function resumeDelete($id){

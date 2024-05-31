@@ -12,7 +12,7 @@ class PDFController extends Controller
     //
     public function downloadPdf($id){
         $resume = Resume::where('id', $id)->first();
-        $pdf = FacadePdf::loadView('templates.resume', ['resume'=>$resume]);
+        $pdf = FacadePdf::loadView('deliverables.resume', ['resume'=>$resume]);
         return $pdf->download('resume.pdf');
     }
 }
