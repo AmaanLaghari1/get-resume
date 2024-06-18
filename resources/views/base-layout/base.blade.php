@@ -1,9 +1,9 @@
 @include("base-layout.header")
 @yield('main')
 
-@include('sweetalert::alert')
 </body>
 <script src="{{asset('assets/js/jquery.js')}}"></script>
+<script src="{{asset('assets/js/sweetalert.js')}}"></script>
 @stack('script')
 
 </html>

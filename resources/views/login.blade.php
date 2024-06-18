@@ -43,11 +43,11 @@
 
 </body>
 <script src="{{asset('assets/js/bootstrap.js')}}"></script>
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="{{asset('assets/js/sweetalert.js')}}"></script>
 @if(Session('error'))
 <script>
 Swal.fire(
-  'Login Error',
+  'Login Failed',
   "{{ session('error') }}",
   'error'
 )

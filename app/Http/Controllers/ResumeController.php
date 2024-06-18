@@ -80,7 +80,7 @@ class ResumeController extends Controller
         $newResume->experience = json_encode($experience);
 
         $newResume->save();
-        return back()->withSuccess("Resume saved...");
+        return back()->withSuccess("Resume saved successfully...");
     }
 
     // Update Resume Handler

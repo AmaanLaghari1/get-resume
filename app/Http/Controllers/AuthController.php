@@ -48,7 +48,7 @@ class AuthController extends Controller
             return redirect('/home');
         }
 
-        return redirect()->back()->withError('Login Failed!');
+        return redirect()->back()->withError('Invalid credintials!');
     }
 
     public function loggedout(){

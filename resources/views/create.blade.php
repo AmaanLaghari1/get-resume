@@ -170,4 +170,13 @@ Swal.fire(
 @endsection
 @push('script')
 <script type="module" src="{{asset('assets/js/create.js')}}"></script>
+@if (session('success'))
+<script>
+    Swal.fire(
+      'Resume Created',
+      "{{ session('success') }}",
+      'success'
+    )
+</script>
+@endif
 @endpush('script')
