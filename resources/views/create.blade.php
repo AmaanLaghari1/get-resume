@@ -7,7 +7,7 @@
         @csrf
         <div class="form-group my-2">
             <label for="title" class="form-label">Title<span class="text-danger">*</span></label>
-            <input type="text" class="form-control" name="title" id="title" placeholder="John Doe">
+            <input type="text" class="form-control" name="title" id="title" placeholder="John Doe" value="{{old('title')}}">
             @if($errors->has('title'))
             <small class="text-danger">
                 {{$errors->first('title')}}
@@ -16,7 +16,7 @@
         </div>
         <div class="form-group my-2">
             <label for="profession" class="form-label">Profession<span class="text-danger">*</span></label>
-            <input type="text" class="form-control" name="profession" id="profession" placeholder="Software Developer">
+            <input type="text" class="form-control" name="profession" id="profession" placeholder="Software Developer" value="{{old('profession')}}">
             @if($errors->has('profession'))
             <small class="text-danger">
                 {{$errors->first('profession')}}
@@ -26,19 +26,19 @@
         <div class="form-group my-2">
             <label for="personal-info" class="form-label">Personal Info<span class="text-danger">*</span></label>
             <div class="d-flex gap-2 flex-wrap">
-                <input type="email" class="form-control" name="email" id="email" placeholder="johndoe@gmail.com">
+                <input type="email" class="form-control" name="email" id="email" placeholder="johndoe@gmail.com" value="{{old('email')}}">
                 @if($errors->has('email'))
                 <small class="text-danger">
                     {{$errors->first('email')}}
                 </small>
                 @endif
-                <input type="text" class="form-control" name="phone" id="phone" placeholder="923145678328">
+                <input type="text" class="form-control" name="phone" id="phone" placeholder="923145678328" value="{{old('phone')}}">
                 @if($errors->has('phone'))
                 <small class="text-danger">
                     {{$errors->first('phone')}}
                 </small>
                 @endif
-                <input type="text" class="form-control" name="address" id="location" placeholder="Washington DC, USA">
+                <input type="text" class="form-control" name="address" id="location" placeholder="Washington DC, USA" value="{{old('address')}}">
                 @if($errors->has('address'))
                 <small class="text-danger">
                     {{$errors->first('address')}}
@@ -54,7 +54,7 @@
                 {{$message}}
             </small>
             @enderror
-            <textarea name="objective" id="objective" cols="30" rows="3" class="form-control"></textarea>
+            <textarea name="objective" id="objective" cols="30" rows="3" class="form-control">{{old('objective')}}</textarea>
         </div>
         
         <hr>
@@ -99,14 +99,14 @@
         
         <div class="form-group my-2">
             <label for="skills" class="form-label">Skills<span class="text-danger">*</span></label>
+            @error('skills')
+            <small class="text-danger d-block">
+                {{$message}}
+            </small>
+            @enderror
             <div id="skills">
                 </div>
                 <div class="position-relative">
-                    @error('skills')
-                    <small class="text-danger d-block">
-                        {{$message}}
-                    </small>
-                    @enderror
                     <input type="text" class="form-control" id="skill-input" placeholder="JavaScript, Python, PHP">
                     <button type="button" class="btn btn-primary position-absolute top-0 end-0" id="skill-add-btn">Add</button>
                 </div>

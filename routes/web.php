@@ -22,7 +22,7 @@ Route::group(['middleware' => 'auth'], function(){
     Route::post('/resume/update/{id}', [ResumeController::class, 'resumeUpdate']);
     Route::post('/resume/create', [ResumeController::class, 'resumeSave']);
     Route::get('/resume/delete/{id}', [ResumeController::class, 'resumeDelete']);
-    Route::get('/resume/{id}/download', [PDFController::class, 'downloadPdf']);
+    Route::get('/resume/{id}/download/{tempId}', [PDFController::class, 'downloadPdf']);
     Route::get('admin', function () {
         return view('admin.admin');
     });

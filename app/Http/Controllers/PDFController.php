@@ -10,9 +10,15 @@ use Illuminate\Http\Request;
 class PDFController extends Controller
 {
     //
-    public function downloadPdf($id){
+    public function downloadPdf($id, $tempId){
         $resume = Resume::where('id', $id)->first();
-        $pdf = FacadePdf::loadView('deliverables.resume', ['resume'=>$resume]);
-        return $pdf->download('resume.pdf');
+        if($tempId == 1){
+            $pdf = FacadePdf::loadView('deliverables.resume', ['resume'=>$resume]);
+            return $pdf->download('resume.pdf');
+        }
+        elseif($tempId == 2){
+            $pdf = FacadePdf::loadView('deliverables.resume2', ['resume'=>$resume]);
+            return $pdf->download('resume2.pdf');
+        }
     }
 }

@@ -3,7 +3,7 @@ export const skillHandler = () => {
         const skillInput = $("#skill-input").val();
         $("#skills").append(`
         <div class="badge text-bg-primary my-1">${skillInput}
-        <input type="hidden" name="skill[]" value="${skillInput}">
+        <input type="hidden" name="skills[]" value="${skillInput}">
         <button type="button" class="btn btn-close btn-sm remove-skill"></button>
         </div>
         `);

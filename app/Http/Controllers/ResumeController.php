@@ -25,12 +25,12 @@ class ResumeController extends Controller
     // Create Resume Handler
     public function resumeSave(Request $req){
         // dd($req->all());
-
+        
         $req->validate([
             'title' => 'required',
             'profession' => 'required',
             'email' => 'required|unique:resumes,email',
-            'phone' => 'required|min:11|max:11',
+            'phone' => 'required|min:11|max:11|unique:resumes,phone',
             'address' => 'required',
             'objective' => 'required',
             'institute' => 'required',
@@ -129,6 +129,7 @@ class ResumeController extends Controller
         return back()->withSuccess("Resume updated...");
     }
     
+    // Resume Delete Handler
     public function resumeDelete($id){
         $resume = Resume::where('id', $id)->first();
         $resume->delete();

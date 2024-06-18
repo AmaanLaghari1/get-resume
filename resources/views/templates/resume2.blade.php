@@ -5,7 +5,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Amaanullah Khan Laghari</title>
-  
     <style>
         body {
             padding: 20px;
@@ -29,6 +28,7 @@
     </style>
 </head>
 <body>
+<font face="Arial">
     <h1><span class="fa-solid fa-user"></span> {{$resume['title']}}</h1>
     <h3 style="font-weight: lighter;">{{$resume['profession']}}</h3>
     
@@ -191,5 +191,6 @@
     </table>
     
 
+</font>
 </body>
 </html>

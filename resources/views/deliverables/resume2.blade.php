@@ -29,6 +29,7 @@
     </style>
 </head>
 <body>
+    <font face="Arial">
     <h1><span class="fa-solid fa-user"></span> {{$resume['title']}}</h1>
     <h3 style="font-weight: lighter;">{{$resume['profession']}}</h3>
     
@@ -190,6 +191,6 @@
         </tr>
     </table>
     
-
+    </font>
 </body>
 </html>
